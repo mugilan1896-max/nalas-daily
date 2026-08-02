@@ -1,0 +1,25 @@
+{
+  "name": "nalas-daily-server",
+  "version": "1.0.0",
+  "description": "Express Backend for Nala's Daily",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node db/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^11.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "duckduckgo-images-api": "^1.0.5",
+    "express": "^4.19.2",
+    "googlethis": "^1.8.0",
+    "jsonwebtoken": "^9.0.2",
+    "puppeteer": "^25.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Nala's Daily - Homely Meals",
+  "short_name": "Nala's Daily",
+  "description": "Affordable home-style breakfast, lunch and dinner subscriptions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FCF9F0",
+  "theme_color": "#23412B",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "nalas-daily",
+  "version": "1.0.0",
+  "description": "Nala's Daily Full-Stack Web Application",
+  "main": "server/index.js",
+  "scripts": {
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm --prefix client run build",
+    "seed": "npm --prefix server run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
