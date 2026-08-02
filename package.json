@@ -4,6 +4,7 @@
   "description": "Nala's Daily Full-Stack Web Application",
   "main": "server/index.js",
   "scripts": {
+    "postinstall": "npm --prefix client install",
     "server": "npm --prefix server run dev",
     "client": "npm --prefix client run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
