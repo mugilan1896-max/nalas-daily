@@ -27,6 +27,7 @@ export const PlansInfoPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('weekly');
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const handleSubscribe = async (plan: Plan) => {
     const message = `Hello ${BUSINESS_INFO.name}, I am interested in subscribing to the ${plan.name} (${plan.meal_label}).`;
@@ -126,17 +127,21 @@ export const PlansInfoPage: React.FC = () => {
         {/* Plan Cards */}
         {!loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPlans.map((plan) => (
+            {filteredPlans.map((plan, i) => {
+              const isHighlighted = hoveredCard !== null ? hoveredCard === i : plan.is_popular === 1;
+              return (
               <div
                 key={plan.id}
-                className={`rounded-2xl p-6 flex flex-col relative overflow-hidden transition-shadow ${
-                  plan.is_popular
-                    ? 'bg-surface-container-low shadow-[0px_4px_20px_rgba(40,89,67,0.12)] border border-primary transform md:-translate-y-2 hover:shadow-xl'
-                    : 'bg-white shadow-[0px_4px_20px_rgba(40,89,67,0.08)] border border-outline-variant/30 hover:shadow-lg group'
-                }`}
+                onMouseEnter={() => setHoveredCard(i)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className={`rounded-2xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out border
+                  ${isHighlighted 
+                    ? 'bg-primary text-white shadow-2xl md:-translate-y-2 md:scale-105 border-transparent' 
+                    : 'bg-white border-outline-variant/30 hover:shadow-lg md:translate-y-0 md:scale-100 text-on-surface group'
+                  }`}
               >
-                {/* Decorative corner blob for non-popular cards */}
-                {!plan.is_popular && (
+                {/* Decorative corner blob for non-highlighted cards */}
+                {!isHighlighted && (
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/30 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
                 )}
 
@@ -150,40 +155,40 @@ export const PlansInfoPage: React.FC = () => {
                 {/* Card Content */}
                 <div className={`mb-4 ${plan.is_popular ? 'mt-2' : ''}`}>
                   {plan.badge && (
-                    <span className={`inline-block px-3 py-1 font-label-sm text-label-sm rounded-full border mb-2 ${
-                      plan.is_popular
-                        ? 'bg-white text-primary border-primary/20'
+                    <span className={`inline-block px-3 py-1 font-label-sm text-label-sm rounded-full border mb-2 transition-colors duration-500 ${
+                      isHighlighted
+                        ? 'bg-white text-primary border-transparent'
                         : 'bg-surface-container text-on-surface-variant border-outline-variant'
                     }`}>
                       {plan.badge}
                     </span>
                   )}
-                  <h3 className="font-headline-md text-headline-md text-primary mb-1">{plan.name}</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">{plan.description}</p>
+                  <h3 className={`font-headline-md text-headline-md mb-1 transition-colors duration-500 ${isHighlighted ? 'text-secondary-fixed' : 'text-primary'}`}>{plan.name}</h3>
+                  <p className={`font-body-md text-body-md transition-colors duration-500 ${isHighlighted ? 'text-white/90' : 'text-on-surface-variant'}`}>{plan.description}</p>
                 </div>
 
                 {/* Price + Action */}
-                <div className={`mt-auto pt-6 flex items-end justify-between border-t ${
-                  plan.is_popular ? 'border-primary/10' : 'border-surface-container-high'
+                <div className={`mt-auto pt-6 flex items-end justify-between border-t transition-colors duration-500 ${
+                  isHighlighted ? 'border-white/20' : 'border-surface-container-high'
                 }`}>
                   <div>
-                    <span className="font-display-lg text-display-lg text-accent leading-none">
+                    <span className={`font-display-lg text-display-lg leading-none transition-colors duration-500 ${isHighlighted ? 'text-white' : 'text-accent'}`}>
                       {formatPrice(plan.total_price)}
                     </span>
-                    <span className="font-label-sm text-label-sm text-on-surface-variant block mt-1">
+                    <span className={`font-label-sm text-label-sm block mt-1 transition-colors duration-500 ${isHighlighted ? 'text-white/90' : 'text-on-surface-variant'}`}>
                       {getPeriodLabel(activeTab)}
                     </span>
                   </div>
-                  {plan.is_popular ? (
+                  {isHighlighted ? (
                     <button
-                      onClick={() => handleSubscribe(plan)}
-                      className="bg-primary text-white font-label-md px-6 py-3 rounded-full hover:bg-primary/90 transition-colors active:scale-95 shadow-sm inline-block"
+                      onClick={(e) => { e.stopPropagation(); handleSubscribe(plan); }}
+                      className="bg-accent text-white font-label-md px-6 py-3 rounded-full hover:bg-accent/90 transition-colors active:scale-95 shadow-sm inline-block"
                     >
                       Enquire on WhatsApp
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleSubscribe(plan)}
+                      onClick={(e) => { e.stopPropagation(); handleSubscribe(plan); }}
                       className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors active:scale-95 shadow-sm"
                     >
                       <span className="material-symbols-outlined">arrow_forward</span>
@@ -191,7 +196,8 @@ export const PlansInfoPage: React.FC = () => {
                   )}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
