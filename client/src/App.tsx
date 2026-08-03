@@ -10,7 +10,6 @@ import { ContactLocationPage } from './pages/public/ContactLocationPage';
 import { FAQPage } from './pages/public/FAQPage';
 import { PrivacyPolicyPage } from './pages/public/PrivacyPolicyPage';
 import { TermsConditionsPage } from './pages/public/TermsConditionsPage';
-import { NotFoundPage } from './pages/public/NotFoundPage';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -24,9 +23,6 @@ export const AppRoutes: React.FC = () => {
       <Route element={<PublicLayout><FAQPage /></PublicLayout>} path="/faq" />
       <Route element={<PublicLayout><PrivacyPolicyPage /></PublicLayout>} path="/privacy" />
       <Route element={<PublicLayout><TermsConditionsPage /></PublicLayout>} path="/terms" />
-
-      {/* Catch-all fallback */}
-      <Route path="*" element={<PublicLayout><NotFoundPage /></PublicLayout>} />
     </Routes>
   );
 };
