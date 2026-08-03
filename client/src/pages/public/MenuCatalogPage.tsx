@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import API from '../../services/api';
 import type { Meal } from '../../types/meal';
 import { BUSINESS_INFO } from '../../constants/businessInfo';
@@ -100,17 +100,8 @@ export const MenuCatalogPage: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="absolute bottom-0 left-0 w-full p-md flex flex-col justify-end gap-2 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                     <h3 className="font-headline-md text-white text-xl line-clamp-2 leading-tight">{meal.title}</h3>
-                    <a
-                      href={`https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(`Hello ${BUSINESS_INFO.name}, I would like to know more about: ${meal.title}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full text-center bg-[#25D366] text-white font-label-sm font-bold py-2 rounded-full hover:bg-[#1da851] transition-all shadow-sm mt-1 opacity-0 group-hover:opacity-100"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Enquire on WhatsApp
-                    </a>
                   </div>
                 </div>
               );
