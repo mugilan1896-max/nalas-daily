@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEOHead } from '../../components/common/SEOHead';
+import { BUSINESS_INFO } from '../../constants/businessInfo';
 
 export const HomePage: React.FC = () => {
   const [activePlan, setActivePlan] = useState<'daily' | 'weekly' | 'monthly'>('weekly');
@@ -248,122 +249,85 @@ export const HomePage: React.FC = () => {
             <p className="font-body-md text-body-md text-on-surface-variant mb-8">Choose a plan that fits your lifestyle. Pause or modify anytime.</p>
             {/* Subscription Toggle */}
             <div className="inline-flex bg-surface border border-outline-variant rounded-full p-1 shadow-sm">
-              <button
-                onClick={() => setActivePlan('daily')}
-                className={`px-6 py-2 rounded-full font-label-md text-label-md transition-colors ${activePlan === 'daily' ? 'bg-primary-container text-on-primary-container shadow-sm' : 'text-on-surface-variant hover:bg-surface-variant'}`}
-              >
-                Daily
-              </button>
-              <button
-                onClick={() => setActivePlan('weekly')}
-                className={`px-6 py-2 rounded-full font-label-md text-label-md transition-colors ${activePlan === 'weekly' ? 'bg-primary-container text-on-primary-container shadow-sm' : 'text-on-surface-variant hover:bg-surface-variant'}`}
-              >
-                Weekly
-              </button>
-              <button
-                onClick={() => setActivePlan('monthly')}
-                className={`px-6 py-2 rounded-full font-label-md text-label-md transition-colors ${activePlan === 'monthly' ? 'bg-primary-container text-on-primary-container shadow-sm' : 'text-on-surface-variant hover:bg-surface-variant'}`}
-              >
-                Monthly
-              </button>
+              {(['daily', 'weekly', 'monthly'] as const).map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActivePlan(tab)}
+                  className={`px-6 py-2 rounded-full font-label-md text-label-md transition-all duration-300
+                    ${activePlan === tab
+                      ? 'bg-primary text-white shadow-md scale-105'
+                      : 'text-on-surface-variant hover:bg-surface-variant'
+                    }`}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              ))}
             </div>
           </div>
+
+          {/* Dynamic Plan Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-lg w-full max-w-5xl mt-8">
-            {/* Plan Card 1 */}
-            <div className="bg-surface border border-outline-variant rounded-2xl p-lg flex flex-col hover:shadow-ambient transition-shadow">
-              <div className="mb-6">
-                <h3 className="font-headline-md text-headline-md text-primary mb-2">Lite Week</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">Perfect for trying out our meals.</p>
+            {(activePlan === 'daily' ? [
+              { name: 'Single Meal', desc: 'One fresh home-cooked meal, anytime.', price: '₹110', period: '/meal', features: ['1 Meal (Lunch or Dinner)', 'Choose your menu', 'No commitment'], popular: false },
+              { name: 'Lunch Combo', desc: 'The perfect midday home-cooked combo.', price: '₹150', period: '/meal', features: ['Rice + Curry + Buttermilk', 'Fresh & Hygienic', 'Same-day order'], popular: true },
+              { name: 'Full Day Meal', desc: 'Breakfast + Lunch + Dinner — all in one.', price: '₹300', period: '/day', features: ['3 Meals in a day', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
+            ] : activePlan === 'weekly' ? [
+              { name: 'Lite Week', desc: 'Perfect for trying out our meals.', price: '₹660', period: '/week', features: ['1 Meal per day (Mon-Sat)', 'Choose Lunch', 'Standard Delivery included'], popular: false },
+              { name: 'Standard Week', desc: 'The ideal balance for working professionals.', price: '₹600', period: '/week', features: ['2 Meals per day (Mon-Fri)', 'Breakfast & Dinner', 'Priority Delivery', 'Weekend opt-in available'], popular: true },
+              { name: 'Full Week', desc: 'Complete nutritional coverage.', price: '₹1260', period: '/week', features: ['3 Meals per day (Mon-Sun)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Special'], popular: false },
+            ] : [
+              { name: 'Monthly Lite', desc: 'Light subscription for individuals.', price: '₹2640', period: '/month', features: ['1 Meal/day (26 days)', 'Choose Lunch or Dinner', 'Standard Delivery'], popular: false },
+              { name: 'Monthly Standard', desc: 'Best for hostel students & bachelors.', price: '₹2400', period: '/month', features: ['2 Meals/day (26 days)', 'Breakfast & Dinner', 'Priority Delivery', 'Weekend opt-in'], popular: true },
+              { name: 'Monthly Full', desc: 'Complete family or professional coverage.', price: '₹5040', period: '/month', features: ['3 Meals/day (26 days)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Special'], popular: false },
+            ]).map((plan, i) => (
+              <div
+                key={`${activePlan}-${i}`}
+                className={`rounded-2xl p-lg flex flex-col transition-all duration-500
+                  ${plan.popular
+                    ? 'bg-primary text-white shadow-ambient md:-translate-y-4 relative overflow-hidden'
+                    : 'bg-surface border border-outline-variant hover:shadow-ambient'
+                  }`}
+                style={{ animation: 'fadeSlideIn 0.4s ease both', animationDelay: `${i * 80}ms` }}
+              >
+                {plan.popular && (
+                  <div className="absolute top-0 right-0 bg-accent text-white font-label-sm text-label-sm font-bold px-4 py-1 rounded-bl-lg">MOST POPULAR</div>
+                )}
+                <div className={`mb-6 ${plan.popular ? 'mt-2' : ''}`}>
+                  <h3 className={`font-headline-md text-headline-md mb-2 ${plan.popular ? 'text-secondary-fixed' : 'text-primary'}`}>{plan.name}</h3>
+                  <p className={`font-body-md text-body-md ${plan.popular ? 'text-white/80' : 'text-on-surface-variant'}`}>{plan.desc}</p>
+                </div>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className={`font-display-lg text-display-lg ${plan.popular ? 'text-white' : 'text-primary'}`}>{plan.price}</span>
+                  <span className={`font-body-md text-body-md ${plan.popular ? 'text-white/80' : 'text-on-surface-variant'}`}>{plan.period}</span>
+                </div>
+                <ul className="flex flex-col gap-3 mb-8 flex-grow">
+                  {plan.features.map((f, fi) => (
+                    <li key={fi} className="flex items-center gap-3 font-body-md text-body-md">
+                      <span className={`material-symbols-outlined text-[20px] ${plan.popular ? 'text-secondary-fixed' : 'text-primary-container'}`}>check_circle</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => window.open(`https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(`Hi! I'm interested in the ${plan.name} plan.`)}`, '_blank')}
+                  className={`w-full font-label-md text-label-md font-bold py-3 rounded-full transition-colors
+                    ${plan.popular
+                      ? 'bg-accent text-white hover:bg-accent/90 shadow-sm'
+                      : 'bg-transparent text-primary-container border-2 border-primary-container hover:bg-primary-container hover:text-white'
+                    }`}
+                >
+                  Select Plan
+                </button>
               </div>
-              <div className="mb-6 flex items-baseline gap-1">
-                <span className="font-display-lg text-display-lg text-primary">₹660</span>
-                <span className="font-body-md text-body-md text-on-surface-variant">/week</span>
-              </div>
-              <ul className="flex flex-col gap-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  1 Meal per day (Mon-Sat)
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md mt-2">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  Choose Lunch
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  Standard Delivery included
-                </li>
-              </ul>
-              <button className="w-full bg-transparent text-primary-container border-2 border-primary-container font-label-md text-label-md font-bold py-3 rounded-full hover:bg-primary-container hover:text-white transition-colors">
-                Select Plan
-              </button>
-            </div>
-            {/* Plan Card 2 (Premium/Highlighted) */}
-            <div className="bg-primary text-white rounded-2xl p-lg flex flex-col shadow-ambient transform md:-translate-y-4 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-accent text-white font-label-sm text-label-sm font-bold px-4 py-1 rounded-bl-lg">MOST POPULAR</div>
-              <div className="mb-6 mt-2">
-                <h3 className="font-headline-md text-headline-md text-secondary-fixed mb-2">Standard Week</h3>
-                <p className="font-body-md text-body-md text-white/80">The ideal balance for working professionals.</p>
-              </div>
-              <div className="mb-6 flex items-baseline gap-1">
-                <span className="font-display-lg text-display-lg text-white">₹600</span>
-                <span className="font-body-md text-body-md text-white/80">/week</span>
-              </div>
-              <ul className="flex flex-col gap-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-secondary-fixed">check_circle</span>
-                  2 Meals per day (Mon-Fri)
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-secondary-fixed">check_circle</span>
-                  Breakfast &amp; Dinner
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-secondary-fixed">check_circle</span>
-                  Priority Delivery
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-secondary-fixed">check_circle</span>
-                  Weekend opt-in available
-                </li>
-              </ul>
-              <button className="w-full bg-accent text-white font-label-md text-label-md font-bold py-3 rounded-full hover:bg-accent/90 transition-colors shadow-sm">
-                Select Plan
-              </button>
-            </div>
-            {/* Plan Card 3 */}
-            <div className="bg-surface border border-outline-variant rounded-2xl p-lg flex flex-col hover:shadow-ambient transition-shadow">
-              <div className="mb-6">
-                <h3 className="font-headline-md text-headline-md text-primary mb-2">Full Week</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">Complete nutritional coverage.</p>
-              </div>
-              <div className="mb-6 flex items-baseline gap-1">
-                <span className="font-display-lg text-display-lg text-primary">₹1260</span>
-                <span className="font-body-md text-body-md text-on-surface-variant">/week</span>
-              </div>
-              <ul className="flex flex-col gap-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  3 Meals per day (Mon-Sun)
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  Breakfast, Lunch &amp; Dinner
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  Priority Delivery
-                </li>
-                <li className="flex items-center gap-3 font-body-md text-body-md">
-                  <span className="material-symbols-outlined text-[20px] text-primary-container">check_circle</span>
-                  Free Sunday Special
-                </li>
-              </ul>
-              <button className="w-full bg-transparent text-primary-container border-2 border-primary-container font-label-md text-label-md font-bold py-3 rounded-full hover:bg-primary-container hover:text-white transition-colors">
-                Select Plan
-              </button>
-            </div>
+            ))}
           </div>
         </div>
+        <style>{`
+          @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
       </section>
     </>
   );
