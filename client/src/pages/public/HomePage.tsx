@@ -279,7 +279,8 @@ export const HomePage: React.FC = () => {
             ] : [
               { name: 'Monthly Lite', desc: 'Light subscription for individuals.', price: '₹2640', period: '/month', features: ['1 Meal/day (26 days)', 'Choose Lunch or Dinner', 'Standard Delivery'], popular: false },
               { name: 'Monthly Standard', desc: 'Best for hostel students & bachelors.', price: '₹2400', period: '/month', features: ['2 Meals/day (26 days)', 'Breakfast & Dinner', 'Priority Delivery', 'Weekend opt-in'], popular: true },
-              { name: 'Monthly Full', desc: 'Complete family or professional coverage.', price: '₹5040', period: '/month', features: ['3 Meals/day (26 days)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Spec            ]).map((plan, i) => {
+              { name: 'Monthly Full', desc: 'Complete family or professional coverage.', price: '₹5040', period: '/month', features: ['3 Meals/day (26 days)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Special'], popular: false },
+            ]).map((plan, i) => {
               // Green highlight travels: hovered card wins, otherwise popular card
               const isHighlighted = hoveredCard !== null ? hoveredCard === i : plan.popular;
               return (
