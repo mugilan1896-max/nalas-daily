@@ -47,10 +47,10 @@ export const HomePage: React.FC = () => {
               Explore Weekly Plans
             </Link>
             <Link
-              to="/menu"
+              to="/contact"
               className="bg-white text-primary border-2 border-primary/20 font-label-md text-[18px] font-bold py-[16px] px-[40px] rounded-full hover:bg-surface-variant transition-colors shadow-sm inline-block"
             >
-              Order for Today
+              Contact Us to Get Started
             </Link>
           </div>
 

@@ -98,24 +98,20 @@ export const PlansInfoPage: React.FC = () => {
         {/* Tab Selector */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex bg-surface-container-high rounded-full p-1 shadow-inner relative">
-            <button
-              onClick={() => setActiveTab('individual')}
-              className={`relative z-10 px-6 py-3 font-label-md text-label-md rounded-full transition-all focus:outline-none ${activeTab === 'individual' ? 'text-primary bg-primary-container/10' : 'text-on-surface-variant hover:text-primary'}`}
-            >
-              Individual Orders
-            </button>
-            <button
-              onClick={() => setActiveTab('weekly')}
-              className={`relative z-10 px-6 py-3 font-label-md text-label-md rounded-full transition-all focus:outline-none ${activeTab === 'weekly' ? 'text-primary bg-primary-container/10' : 'text-on-surface-variant hover:text-primary'}`}
-            >
-              Weekly Plans
-            </button>
-            <button
-              onClick={() => setActiveTab('monthly')}
-              className={`relative z-10 px-6 py-3 font-label-md text-label-md rounded-full transition-all focus:outline-none ${activeTab === 'monthly' ? 'text-primary bg-primary-container/10' : 'text-on-surface-variant hover:text-primary'}`}
-            >
-              Monthly Plans
-            </button>
+            {(['individual', 'weekly', 'monthly'] as TabType[]).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative z-10 px-6 py-3 font-label-md text-label-md rounded-full transition-all duration-300 ease-in-out focus:outline-none
+                  ${activeTab === tab
+                    ? 'bg-primary text-white shadow-md scale-105'
+                    : 'text-on-surface-variant hover:text-primary hover:bg-primary/5'
+                  }`}
+                style={{ transition: 'background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s' }}
+              >
+                {tab === 'individual' ? 'Individual' : tab === 'weekly' ? 'Weekly' : 'Monthly'}
+              </button>
+            ))}
           </div>
         </div>
 
