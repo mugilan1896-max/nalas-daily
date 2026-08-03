@@ -273,13 +273,17 @@ export const HomePage: React.FC = () => {
               { name: 'Lunch Combo', desc: 'The perfect midday home-cooked combo.', price: '₹150', period: '/meal', features: ['Rice + Curry + Buttermilk', 'Fresh & Hygienic', 'Same-day order'], popular: true },
               { name: 'Full Day Meal', desc: 'Breakfast + Lunch + Dinner — all in one.', price: '₹300', period: '/day', features: ['3 Meals in a day', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
             ] : activePlan === 'weekly' ? [
-              { name: 'Lite Week', desc: 'Perfect for trying out our meals.', price: '₹660', period: '/week', features: ['1 Meal per day (Mon-Sat)', 'Choose Lunch', 'Standard Delivery included'], popular: false },
-              { name: 'Standard Week', desc: 'The ideal balance for working professionals.', price: '₹600', period: '/week', features: ['2 Meals per day (Mon-Fri)', 'Breakfast & Dinner', 'Priority Delivery', 'Weekend opt-in available'], popular: true },
-              { name: 'Full Week', desc: 'Complete nutritional coverage.', price: '₹1260', period: '/week', features: ['3 Meals per day (Mon-Sun)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Special'], popular: false },
+              { name: 'Weekly Lunch', desc: 'Perfect for trying out our meals.', price: '₹660', period: '/week', features: ['1 Meal/day (Mon-Sat)', 'Veg Lunch', 'Standard Delivery included'], popular: false },
+              { name: 'Weekly Lunch (Non-Veg)', desc: 'Perfect for non-veg lovers.', price: '₹700', period: '/week', features: ['1 Meal/day (Mon-Sat)', 'Non-Veg Lunch', 'Standard Delivery included'], popular: false },
+              { name: 'Weekly Breakfast & Dinner', desc: 'The ideal balance for working professionals.', price: '₹600', period: '/week', features: ['2 Meals/day (Mon-Fri)', 'Breakfast & Dinner', 'Priority Delivery'], popular: true },
+              { name: 'Weekly All (Veg)', desc: 'Complete nutritional coverage.', price: '₹1260', period: '/week', features: ['3 Meals/day (Mon-Sun)', 'Veg Breakfast, Lunch & Dinner', 'Priority Delivery'], popular: false },
+              { name: 'Weekly All (Non-Veg)', desc: 'Complete coverage with non-veg.', price: '₹1300', period: '/week', features: ['3 Meals/day (Mon-Sun)', 'Non-Veg Breakfast, Lunch & Dinner', 'Priority Delivery'], popular: false },
             ] : [
-              { name: 'Monthly Lite', desc: 'Light subscription for individuals.', price: '₹2640', period: '/month', features: ['1 Meal/day (26 days)', 'Choose Lunch or Dinner', 'Standard Delivery'], popular: false },
-              { name: 'Monthly Standard', desc: 'Best for hostel students & bachelors.', price: '₹2400', period: '/month', features: ['2 Meals/day (26 days)', 'Breakfast & Dinner', 'Priority Delivery', 'Weekend opt-in'], popular: true },
-              { name: 'Monthly Full', desc: 'Complete family or professional coverage.', price: '₹5040', period: '/month', features: ['3 Meals/day (26 days)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Special'], popular: false },
+              { name: 'Monthly Lunch', desc: 'Light subscription for individuals.', price: '₹2860', period: '/month', features: ['1 Meal/day (26 days)', 'Veg Lunch', 'Standard Delivery'], popular: false },
+              { name: 'Monthly Lunch (Non-Veg)', desc: 'Light subscription with non-veg meals.', price: '₹3020', period: '/month', features: ['1 Meal/day (26 days)', 'Non-Veg Lunch', 'Standard Delivery'], popular: false },
+              { name: 'Monthly Breakfast & Dinner', desc: 'Best for hostel students & bachelors.', price: '₹2600', period: '/month', features: ['2 Meals/day (26 days)', 'Breakfast & Dinner', 'Priority Delivery'], popular: true },
+              { name: 'Monthly All (Veg)', desc: 'Complete family or professional coverage.', price: '₹5460', period: '/month', features: ['3 Meals/day (26 days)', 'Veg Breakfast, Lunch & Dinner', 'Priority Delivery'], popular: false },
+              { name: 'Monthly All (Non-Veg)', desc: 'Complete coverage with non-veg meals.', price: '₹5620', period: '/month', features: ['3 Meals/day (26 days)', 'Non-Veg Breakfast, Lunch & Dinner', 'Priority Delivery'], popular: false },
             ]).map((plan, i) => {
               // Green highlight travels: hovered card wins, otherwise popular card
               const isHighlighted = hoveredCard !== null ? hoveredCard === i : plan.popular;
