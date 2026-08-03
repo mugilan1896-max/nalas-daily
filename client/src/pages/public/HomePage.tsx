@@ -279,61 +279,63 @@ export const HomePage: React.FC = () => {
             ] : [
               { name: 'Monthly Lite', desc: 'Light subscription for individuals.', price: '₹2640', period: '/month', features: ['1 Meal/day (26 days)', 'Choose Lunch or Dinner', 'Standard Delivery'], popular: false },
               { name: 'Monthly Standard', desc: 'Best for hostel students & bachelors.', price: '₹2400', period: '/month', features: ['2 Meals/day (26 days)', 'Breakfast & Dinner', 'Priority Delivery', 'Weekend opt-in'], popular: true },
-              { name: 'Monthly Full', desc: 'Complete family or professional coverage.', price: '₹5040', period: '/month', features: ['3 Meals/day (26 days)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Special'], popular: false },
-            ]).map((plan, i) => {
+              { name: 'Monthly Full', desc: 'Complete family or professional coverage.', price: '₹5040', period: '/month', features: ['3 Meals/day (26 days)', 'Breakfast, Lunch & Dinner', 'Priority Delivery', 'Free Sunday Spec            ]).map((plan, i) => {
               // Green highlight travels: hovered card wins, otherwise popular card
               const isHighlighted = hoveredCard !== null ? hoveredCard === i : plan.popular;
               return (
               <div
                 key={`${activePlan}-${i}`}
-                className={`rounded-2xl p-lg flex flex-col relative overflow-hidden cursor-pointer`}
-                style={{
-                  animation: 'fadeSlideIn 0.4s ease both',
-                  animationDelay: `${i * 80}ms`,
-                  background: isHighlighted ? '#23412B' : '#ffffff',
-                  color: isHighlighted ? '#ffffff' : '#1a1a1a',
-                  border: isHighlighted ? 'none' : '1px solid #d4d4d4',
-                  transform: isHighlighted ? 'translateY(-16px) scale(1.02)' : 'translateY(0) scale(1)',
-                  boxShadow: isHighlighted ? '0 20px 40px rgba(35,65,43,0.25)' : '0 2px 8px rgba(0,0,0,0.06)',
-                  transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                }}
+                className={`rounded-2xl p-lg flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out border
+                  ${isHighlighted 
+                    ? 'bg-primary text-white shadow-2xl md:-translate-y-4 md:scale-105 border-transparent' 
+                    : 'bg-surface border-outline-variant hover:shadow-md md:translate-y-0 md:scale-100 text-on-surface'
+                  }`}
+                style={{ animation: 'fadeSlideIn 0.4s ease both', animationDelay: `${i * 80}ms` }}
                 onMouseEnter={() => setHoveredCard(i)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-accent text-white font-label-sm text-label-sm font-bold px-4 py-1 rounded-bl-lg z-10">MOST POPULAR</div>
+                  <div className="absolute top-0 right-0 bg-accent text-white font-label-sm text-label-sm font-bold px-4 py-1 rounded-bl-lg z-10 shadow-sm">MOST POPULAR</div>
                 )}
                 <div className={`mb-6 ${plan.popular ? 'mt-2' : ''}`}>
-                  <h3 className="font-headline-md text-headline-md mb-2" style={{ color: isHighlighted ? '#C4A35A' : '#23412B', transition: 'color 0.4s ease' }}>{plan.name}</h3>
-                  <p className="font-body-md text-body-md" style={{ color: isHighlighted ? 'rgba(255,255,255,0.8)' : '#6b7280', transition: 'color 0.4s ease' }}>{plan.desc}</p>
+                  <h3 className={`font-headline-md text-headline-md mb-2 transition-colors duration-500 ${isHighlighted ? 'text-secondary-fixed' : 'text-primary'}`}>
+                    {plan.name}
+                  </h3>
+                  <p className={`font-body-md text-body-md transition-colors duration-500 ${isHighlighted ? 'text-white/90' : 'text-on-surface-variant'}`}>
+                    {plan.desc}
+                  </p>
                 </div>
                 <div className="mb-6 flex items-baseline gap-1">
-                  <span className="font-display-lg text-display-lg" style={{ color: isHighlighted ? '#ffffff' : '#23412B', transition: 'color 0.4s ease' }}>{plan.price}</span>
-                  <span className="font-body-md text-body-md" style={{ color: isHighlighted ? 'rgba(255,255,255,0.8)' : '#6b7280', transition: 'color 0.4s ease' }}>{plan.period}</span>
+                  <span className={`font-display-lg text-display-lg transition-colors duration-500 ${isHighlighted ? 'text-white' : 'text-primary'}`}>
+                    {plan.price}
+                  </span>
+                  <span className={`font-body-md text-body-md transition-colors duration-500 ${isHighlighted ? 'text-white/90' : 'text-on-surface-variant'}`}>
+                    {plan.period}
+                  </span>
                 </div>
                 <ul className="flex flex-col gap-3 mb-8 flex-grow">
                   {plan.features.map((f, fi) => (
                     <li key={fi} className="flex items-center gap-3 font-body-md text-body-md">
-                      <span className="material-symbols-outlined text-[20px]" style={{ color: isHighlighted ? '#C4A35A' : '#23412B', transition: 'color 0.4s ease' }}>check_circle</span>
+                      <span className={`material-symbols-outlined text-[20px] transition-colors duration-500 ${isHighlighted ? 'text-secondary-fixed' : 'text-primary-container'}`}>
+                        check_circle
+                      </span>
                       {f}
                     </li>
                   ))}
                 </ul>
                 <button
                   onClick={() => window.open(`https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(`Hi! I'm interested in the ${plan.name} plan.`)}`, '_blank')}
-                  className="w-full font-label-md text-label-md font-bold py-3 rounded-full"
-                  style={{
-                    background: isHighlighted ? '#C4A35A' : 'transparent',
-                    color: isHighlighted ? '#ffffff' : '#23412B',
-                    border: isHighlighted ? 'none' : '2px solid #23412B',
-                    transition: 'all 0.4s ease',
-                  }}
+                  className={`w-full font-label-md text-label-md font-bold py-3 rounded-full transition-all duration-500 border-2
+                    ${isHighlighted
+                      ? 'bg-accent text-white border-transparent hover:bg-accent/90 shadow-sm'
+                      : 'bg-transparent text-primary-container border-primary-container hover:bg-primary-container hover:text-white'
+                    }`}
                 >
                   Select Plan
                 </button>
               </div>
               );
-            ))}
+            })}
           </div>
         </div>
         <style>{`
