@@ -269,9 +269,11 @@ export const HomePage: React.FC = () => {
           {/* Dynamic Plan Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-lg w-full max-w-5xl mt-8">
             {(activePlan === 'daily' ? [
-              { name: 'Single Meal', desc: 'One fresh home-cooked meal, anytime.', price: '₹110', period: '/meal', features: ['1 Meal (Lunch or Dinner)', 'Choose your menu', 'No commitment'], popular: false },
-              { name: 'Lunch Combo', desc: 'The perfect midday home-cooked combo.', price: '₹150', period: '/meal', features: ['Rice + Curry + Buttermilk', 'Fresh & Hygienic', 'Same-day order'], popular: true },
-              { name: 'Full Day Meal', desc: 'Breakfast + Lunch + Dinner — all in one.', price: '₹300', period: '/day', features: ['3 Meals in a day', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
+              { name: 'Daily Lunch', desc: 'One fresh home-cooked veg lunch.', price: '₹110', period: '/day', features: ['1 Meal (Lunch)', 'Veg Menu', 'Same-day order'], popular: false },
+              { name: 'Daily Lunch (Non-Veg)', desc: 'One fresh home-cooked non-veg lunch.', price: '₹117', period: '/day', features: ['1 Meal (Lunch)', 'Non-Veg Menu', 'Same-day order'], popular: false },
+              { name: 'Daily Breakfast & Dinner', desc: 'Perfect for busy mornings and relaxed evenings.', price: '₹100', period: '/day', features: ['2 Meals in a day', 'Breakfast & Dinner', 'Priority Delivery'], popular: true },
+              { name: 'Daily All (Veg)', desc: 'Breakfast + Lunch + Dinner — all in one.', price: '₹210', period: '/day', features: ['3 Veg Meals in a day', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
+              { name: 'Daily All (Non-Veg)', desc: 'Complete nutritional coverage including non-veg.', price: '₹217', period: '/day', features: ['3 Meals in a day (Non-Veg)', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
             ] : activePlan === 'weekly' ? [
               { name: 'Weekly Lunch', desc: 'Perfect for trying out our meals.', price: '₹660', period: '/week', features: ['1 Meal/day (Mon-Sat)', 'Veg Lunch', 'Standard Delivery included'], popular: false },
               { name: 'Weekly Lunch (Non-Veg)', desc: 'Perfect for non-veg lovers.', price: '₹700', period: '/week', features: ['1 Meal/day (Mon-Sat)', 'Non-Veg Lunch', 'Standard Delivery included'], popular: false },
