@@ -270,7 +270,7 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-lg w-full max-w-5xl mt-8">
             {(activePlan === 'daily' ? [
               { name: 'Daily Lunch', desc: 'One fresh home-cooked veg lunch.', price: '₹110', period: '/day', features: ['1 Meal (Lunch)', 'Veg Menu', 'Same-day order'], popular: false },
-              { name: 'Daily Lunch (Non-Veg)', desc: 'One fresh home-cooked non-veg lunch.', price: '₹117', period: '/day', features: ['1 Meal (Lunch)', 'Non-Veg Menu', 'Same-day order'], popular: false },
+              { name: 'Daily Lunch (Non-Veg)', desc: 'One fresh home-cooked non-veg lunch.', price: '₹150', period: '/day', features: ['1 Meal (Lunch)', 'Non-Veg Menu', 'Same-day order'], popular: false },
               { name: 'Daily Breakfast & Dinner', desc: 'Perfect for busy mornings and relaxed evenings.', price: '₹100', period: '/day', features: ['2 Meals in a day', 'Breakfast & Dinner', 'Priority Delivery'], popular: true },
               { name: 'Daily All (Veg)', desc: 'Breakfast + Lunch + Dinner — all in one.', price: '₹210', period: '/day', features: ['3 Veg Meals in a day', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
               { name: 'Daily All (Non-Veg)', desc: 'Complete nutritional coverage including non-veg.', price: '₹217', period: '/day', features: ['3 Meals in a day (Non-Veg)', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
