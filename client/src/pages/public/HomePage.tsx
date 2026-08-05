@@ -286,7 +286,7 @@ export const HomePage: React.FC = () => {
               { name: 'Daily Lunch (Non-Veg)', desc: 'One fresh home-cooked non-veg lunch.', price: '₹150', period: '/day', features: ['1 Meal (Lunch)', 'Non-Veg Menu', 'Same-day order'], popular: false },
               { name: 'Daily Breakfast & Dinner', desc: 'Perfect for busy mornings and relaxed evenings.', price: '₹100', period: '/day', features: ['2 Meals in a day', 'Breakfast & Dinner', 'Priority Delivery'], popular: true },
               { name: 'Daily All (Veg)', desc: 'Breakfast + Lunch + Dinner — all in one.', price: '₹210', period: '/day', features: ['3 Veg Meals in a day', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
-              { name: 'Daily All (Non-Veg)', desc: 'Complete nutritional coverage including non-veg.', price: '₹217', period: '/day', features: ['3 Meals in a day (Non-Veg)', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
+              { name: 'Daily All (Non-Veg)', desc: 'Complete nutritional coverage including non-veg.', price: '₹250', period: '/day', features: ['3 Meals in a day (Non-Veg)', 'Balanced Nutrition', 'Priority Delivery'], popular: false },
             ] : activePlan === 'weekly' ? [
               { name: 'Weekly Lunch', desc: 'Perfect for trying out our meals.', price: '₹660', period: '/week', features: ['1 Meal/day (Mon-Sat)', 'Veg Lunch', 'Standard Delivery included'], popular: false },
               { name: 'Weekly Lunch (Non-Veg)', desc: 'Perfect for non-veg lovers.', price: '₹700', period: '/week', features: ['1 Meal/day (Mon-Sat)', 'Non-Veg Lunch', 'Standard Delivery included'], popular: false },
