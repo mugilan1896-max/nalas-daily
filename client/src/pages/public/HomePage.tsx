@@ -140,105 +140,136 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Popular Meals Showcase */}
-      <section className="w-full px-margin-mobile md:px-margin-desktop py-24 mx-auto bg-surface-container-lowest">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display-lg text-4xl md:text-5xl text-primary font-bold mb-6 relative inline-block">
-            Popular on the Menu
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-accent rounded-full"></div>
+      {/* Daily Add-ons Section */}
+      <section className="px-margin-mobile md:px-margin-desktop py-24 mx-auto max-w-[1440px]">
+        <div className="text-center mb-16">
+          <h2 className="font-headline-lg text-headline-lg text-primary relative inline-block">
+            Daily Add-ons
+            <span className="absolute -bottom-4 left-1/4 w-1/2 h-1 bg-accent rounded-full"></span>
           </h2>
-          <p className="font-body-lg text-lg text-on-surface-variant mt-8">
-            Discover our subscribers' favorite home-cooked meals, crafted with love and fresh ingredients daily.
+          <p className="font-body-lg text-lg text-on-surface-variant mt-8 max-w-2xl mx-auto">
+            Craving a little extra? Add any of these delicious sides to your daily or weekly subscription meals. 
+            Perfect for when you want a special treat alongside your regular plan!
           </p>
         </div>
 
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 min-h-[450px]">
-            <img
-              className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-              alt="Chicken Chettinad curry with parottas"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjTFaQHEOdaghmfqTvKy9UCSPuyOFjoA8jeh_TLtUNFYAjpPe5-3qO_sX3VQzKQh7BqXTzRwSgarZ6qZNdA6wr0fuQR-ucDFsVmff4GDIvh9ktxXwnxgViEsDJF8wkYp85sI-Qv2R6MLJrgaW1o48C1HkPP_ck-mtHVIL_nqG3CWWYbeS06drqt_DmoLPJSoLIzcw9qHwiLd97lSSn020cy6LaX0X9oKWcEArisqvq1eoE4A1W1pl4"
-            />
+          
+          {/* Egg Card */}
+          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 h-[350px]">
+            <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Boiled Egg" src="/addons/addon_egg_1785909496766.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
-            
             <div className="absolute top-6 left-6 flex gap-2">
               <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">High Protein</span>
             </div>
-
-            <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
+            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="font-display-md text-3xl text-white mb-3 font-bold leading-tight">Sunday Special Mutton Biryani</h3>
-                <p className="font-body-md text-white/80 mb-6 line-clamp-2">Fragrant seeraga samba rice with tender meat.</p>
+                <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Boiled Egg</h3>
+                <p className="font-body-md text-white/80 mb-4 line-clamp-1">Perfectly boiled, sprinkled with pepper.</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-accent text-2xl font-bold">₹249</span>
-                  <Link to="/menu" className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                    <span className="material-symbols-outlined">arrow_forward</span>
-                  </Link>
+                  <span className="text-accent text-xl font-bold">₹20</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 min-h-[450px]">
-            <img
-              className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-              alt="Fresh garden salad bowl"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIZZnb_QQTmxUKk_R-Qf_Ps6CU-rloRZXmgZSukMVTj-X8Y_2OVfsuyOI25Lnus6NzrFbp193lGUIWo0rytcaCi0M59jQm83XATWqUKcPuCWGwHtcEOrCl_XA_4pE_eg9uKzPmHT6KBbt8zDfDATPEwtnLCi7aXtzAiXIODsMrYktICjCbQHEaAVVABrhQHWxfiqTbIyjF-TU7Rbj4L4y-1Kw3488ZmWHZ7Gq_Iwq9snoDQgOQPETk"
-            />
+          {/* Egg Dosa Card */}
+          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 h-[350px]">
+            <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Egg Dosa" src="/addons/addon_egg_dosa_1785909516878.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
-            
             <div className="absolute top-6 left-6 flex gap-2">
-              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Vegan</span>
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Non-Veg</span>
             </div>
-
-            <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
+            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="font-display-md text-3xl text-white mb-3 font-bold leading-tight">Fresh Garden Salad</h3>
-                <p className="font-body-md text-white/80 mb-6 line-clamp-2">Crisp, refreshing mix of seasonal greens.</p>
+                <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Egg Dosa</h3>
+                <p className="font-body-md text-white/80 mb-4 line-clamp-1">Crispy dosa with a delicious egg spread.</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-accent text-2xl font-bold">₹99</span>
-                  <Link to="/menu" className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                    <span className="material-symbols-outlined">arrow_forward</span>
-                  </Link>
+                  <span className="text-accent text-xl font-bold">₹60</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 min-h-[450px] md:col-span-2 lg:col-span-1">
-            <img
-              className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-              alt="Ghee roast dosa with chutneys"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEjLQNd1IuovM_abUmbXukbH3HN5LzLQ1kHZXHMfzBu4rm-PuhnOllXg0m2Rsyb2bMT6KpM8yIoBVvjOEnowOgT7UkKr3XS2lEAYvbkt1nwjgLySarO72xv9ULtPtGBuFohreU619d9lDbB7qIZy1DSb81rBp8myQcQPfbTwntUVCF8XT1xkxdAX1yd631ACp0vdCP_eu836s7yqS3xcePVt9hp3hLyUeQjqa1-ZKF2pC9oPqGn1gw"
-            />
+          {/* Medhu Vada Card */}
+          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 h-[350px]">
+            <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Medhu Vada" src="/addons/addon_medhu_vada_1785909535213.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
-            
             <div className="absolute top-6 left-6 flex gap-2">
-              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Breakfast</span>
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Snack</span>
             </div>
-
-            <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full">
+            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="font-display-md text-3xl text-white mb-3 font-bold leading-tight">Ghee Roast Dosa Set</h3>
-                <p className="font-body-md text-white/80 mb-6 line-clamp-2">Crispy perfection with authentic chutneys.</p>
+                <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Medhu Vada (2 Nos)</h3>
+                <p className="font-body-md text-white/80 mb-4 line-clamp-1">Crispy, fluffy golden lentil donuts.</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-accent text-2xl font-bold">₹120</span>
-                  <Link to="/menu" className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                    <span className="material-symbols-outlined">arrow_forward</span>
-                  </Link>
+                  <span className="text-accent text-xl font-bold">₹40</span>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Masal Vada Card */}
+          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 h-[350px]">
+            <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Masal Vada" src="/addons/addon_masal_vada_1785909556364.png" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute top-6 left-6 flex gap-2">
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Snack</span>
+            </div>
+            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Masal Vada (2 Nos)</h3>
+                <p className="font-body-md text-white/80 mb-4 line-clamp-1">Spiced and crunchy chana dal fritters.</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-accent text-xl font-bold">₹40</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Masal Dosa Card */}
+          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 h-[350px]">
+            <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Masal Dosa" src="/addons/addon_masal_dosa_1785909574454.png" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute top-6 left-6 flex gap-2">
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Vegetarian</span>
+            </div>
+            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Masal Dosa</h3>
+                <p className="font-body-md text-white/80 mb-4 line-clamp-1">Classic crispy dosa stuffed with potato masala.</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-accent text-xl font-bold">₹70</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sweet Pongal Card */}
+          <div className="group rounded-[32px] overflow-hidden relative shadow-lg bg-surface hover:shadow-2xl transition-all duration-500 h-[350px]">
+            <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Sweet Pongal" src="/menu/menu_pongal.png" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+            <div className="absolute top-6 left-6 flex gap-2">
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Dessert</span>
+            </div>
+            <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Sweet Pongal</h3>
+                <p className="font-body-md text-white/80 mb-4 line-clamp-1">Traditional jaggery sweet rice with ghee-roasted nuts.</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-accent text-xl font-bold">₹60</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         
-        <div className="mt-16 text-center">
-          <Link to="/menu" className="inline-flex items-center gap-2 bg-transparent text-primary border-2 border-primary/20 font-label-md text-lg font-bold py-4 px-8 rounded-full hover:bg-primary hover:text-white transition-colors shadow-sm">
-            Explore Full Menu <span className="material-symbols-outlined">arrow_forward</span>
-          </Link>
+        <div className="mt-12 text-center">
+          <p className="text-on-surface-variant italic mb-4">* All add-ons can be ordered via WhatsApp along with your daily subscription meal.</p>
+          <a href={`https://wa.me/${BUSINESS_INFO.whatsapp}?text=Hello%20Nala's%20Daily,%20I%20would%20like%20to%20know%20more%20about%20adding%20extras%20to%20my%20subscription!`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#25D366] text-white font-label-md text-lg font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-colors shadow-md">
+            Enquire on WhatsApp <span className="material-symbols-outlined">chat</span>
+          </a>
         </div>
       </section>
 
