@@ -166,9 +166,6 @@ export const HomePage: React.FC = () => {
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Boiled Egg</h3>
                 <p className="font-body-md text-white/80 mb-4 line-clamp-1">Perfectly boiled, sprinkled with pepper.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent text-xl font-bold">₹20</span>
-                </div>
               </div>
             </div>
           </div>
@@ -184,9 +181,6 @@ export const HomePage: React.FC = () => {
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Egg Dosa</h3>
                 <p className="font-body-md text-white/80 mb-4 line-clamp-1">Crispy dosa with a delicious egg spread.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent text-xl font-bold">₹60</span>
-                </div>
               </div>
             </div>
           </div>
@@ -202,9 +196,6 @@ export const HomePage: React.FC = () => {
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Medhu Vada (2 Nos)</h3>
                 <p className="font-body-md text-white/80 mb-4 line-clamp-1">Crispy, fluffy golden lentil donuts.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent text-xl font-bold">₹40</span>
-                </div>
               </div>
             </div>
           </div>
@@ -220,9 +211,6 @@ export const HomePage: React.FC = () => {
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Masal Vada (2 Nos)</h3>
                 <p className="font-body-md text-white/80 mb-4 line-clamp-1">Spiced and crunchy chana dal fritters.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent text-xl font-bold">₹40</span>
-                </div>
               </div>
             </div>
           </div>
@@ -238,9 +226,6 @@ export const HomePage: React.FC = () => {
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Masal Dosa</h3>
                 <p className="font-body-md text-white/80 mb-4 line-clamp-1">Classic crispy dosa stuffed with potato masala.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent text-xl font-bold">₹70</span>
-                </div>
               </div>
             </div>
           </div>
@@ -250,15 +235,12 @@ export const HomePage: React.FC = () => {
             <img className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 group-hover:scale-110" alt="Sweet Pongal" src="/menu/menu_pongal.png" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
             <div className="absolute top-6 left-6 flex gap-2">
-              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Dessert</span>
+              <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 px-4 py-1.5 rounded-full font-label-md text-sm font-semibold tracking-wide">Vegetarian</span>
             </div>
             <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display-sm text-2xl text-white mb-2 font-bold leading-tight">Sweet Pongal</h3>
                 <p className="font-body-md text-white/80 mb-4 line-clamp-1">Traditional jaggery sweet rice with ghee-roasted nuts.</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent text-xl font-bold">₹60</span>
-                </div>
               </div>
             </div>
           </div>
